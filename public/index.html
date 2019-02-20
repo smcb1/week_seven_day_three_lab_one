@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/bundle.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>W7D3-LAB1</title>
+</head>
+<body>
+
+  <div id="app">
+
+    <h1>€urrency Exchange</h1>
+
+    <input id="base" v-model="base" placeholder="Enter value in € Euro">
+
+    <label for="currency_select"></label>
+    <select id="currency_select" v-on:change="currencySelect" v-model="selectedCurrency">
+      <option value="">Please choose a currency</option>
+      <option v-for="(value, key) in currencies" :value="key"> {{ key }} </option>
+    </select>
+
+    <p><button class="btn" v-on:click="calculateExchange">Calculate Exchange</button></p>
+
+    <div id ="calculate_exchange">
+      <span><h2>Your total in {{ selectedCurrency }}: {{ exchangeTotal }}</h2></span>
+    </div>
+
+    <hr/>
+
+    <input id="baseEuro" v-model="baseEuro" placeholder="Enter amount">
+    <label for="currency_select"></label>
+    <select id="currency_select" v-on:change="currencySelect" v-model="selectedCurrency">
+      <option value="">Please choose a currency</option>
+      <option v-for="(value, key) in currencies" :value="key"> {{ key }} </option>
+    </select>
+
+    <p><button class="btn" v-on:click="calculateEuro">Calculate EURO</button></p>
+
+    <div id="calculate_euro">
+      <span><h2>The total in € Euros is: {{ euroTotal }}</h2></span>
+    </div>
+
+    <hr/>
+
+    <p><input id="foriegnAmount" v-model="foriegnAmount" placeholder="Enter amount"></p>
+
+    <label for="currency_select"></label>
+    <select id="currency_select" v-on:change="currencySelect" v-model="foriegnBaseCurrency">
+      <option value="">Please choose a base currency</option>
+      <option v-for="(value, key) in currencies" :value="key"> {{ key }} </option>
+    </select>
+
+    <label for="currency_select"></label>
+    <select id="currency_select" v-on:change="currencySelect" v-model="foriegnTargetCurrency">
+      <option value="Please choose a target currency">Please choose a target currency</option>
+      <option v-for="(value, key) in currencies" :value="key"> {{ key }} </option>
+    </select>
+
+    <p><button class="btn" v-on:click="calculateForiegn">Calculate Total</button></p>
+
+    <div id="calculate_foriegn">
+      <span><h2>The total in {{ foriegnTargetCurrency }}'s is: {{ foriegnTotal }}</h2></span>
+    </div>
+
+  </div>
+
+</body>
+</html>
